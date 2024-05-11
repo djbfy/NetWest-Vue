@@ -1,0 +1,78 @@
+.el-header {
+  padding: 0;
+}
+.main-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 1500px;
+  min-height: 80vh; /* 设置容器高度为视口高度 */
+  padding: 20px;
+}
+.title {
+  margin-top: 5px;
+}
+.data {
+  padding: 0 80px;
+  opacity: 0.7;
+}
+#focus {
+  position: relative;
+  top: 0;
+  font-size: 5em;
+  color: transparent;
+  font-weight: 700;
+  line-height: 1em;
+  -webkit-text-stroke-width: 1.5px;
+  --un-text-stroke-opacity: 1;
+  -webkit-text-stroke-color: rgb(170 170 170 / var(--un-text-stroke-opacity));
+  opacity: 0.35;
+  user-select: none;
+}
+.cate {
+  display: flex; /* 使用flex布局使得li可以横向排列 */
+  justify-content: flex-start; /* 让li元素从左侧开始排列 */
+  margin-left: 80px;
+  margin-top: 30px; /* 根据需要调整与title的间距 */
+  margin-bottom: 10px;
+
+}
+.cate li {
+  display: inline-block;
+  color: gray;
+  opacity: 0.5;
+  margin-right: 20px;
+  position: relative; /* 为下划线定位做准备 */
+  cursor: pointer; /* 鼠标悬停时显示小手图标 */
+}
+.el-link{
+  font-size: 20px;
+}
+
+ul {
+  list-style: none;
+  padding: 0; /* 移除默认的ul内边距 */
+}
+.search {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 50px;
+  margin-left: auto;
+}
+.tableStyle {
+  text-decoration: none;
+}
+.tableStyle:link {
+  color: gray;
+}
+.tableStyle:hover {
+  color: blueviolet;
+}
+.tableStyle:visited {
+  color: blueviolet;
+}
+.footer{
+  color: gray;
+  opacity: 0.6;
+  display: flex;
+  justify-content: center;
+}

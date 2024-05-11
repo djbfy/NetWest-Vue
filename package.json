@@ -1,0 +1,26 @@
+{
+  "name": "qi-blog",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@vueuse/core": "^10.9.0",
+    "ant-design-vue": "^4.2.1",
+    "element-plus": "^2.7.2",
+    "vue": "^3.4.21",
+    "vue-router": "^4.3.2"
+  },
+  "devDependencies": {
+    "@iconify/vue": "^4.1.2",
+    "@vitejs/plugin-vue": "^5.0.4",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.0",
+    "vite-plugin-require-transform": "^1.0.21",
+    "vue-tsc": "^2.0.6"
+  }
+}
