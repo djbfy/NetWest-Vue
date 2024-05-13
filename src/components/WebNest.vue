@@ -7,32 +7,37 @@
         <div class="title">
           <span id="focus">WEBNEST</span>
         </div>
-        <div class="cate">
-          <ul>
-            <li><el-link :underline="false" @click="getAllItems()">ALL</el-link></li>
-            <li v-for="(item, index) in tags" :key="index">
-              <el-link :underline="false" @click="getItemByTag(item.type)">{{
-                item.type
-              }}</el-link>
-            </li>
-            <el-popover placement="right" :width="100" trigger="hover">
-              <template #reference>
-                <li v-if="operation">
-                  <el-link :underline="false"
-                    ><Icon icon="ic:baseline-add" width="1.1em" height="1.1em"
+        <div class="tag-search">
+          <div class="cate">
+            <ul>
+              <li><el-link :underline="false" @click="getAllItems()">ALL</el-link></li>
+              <li v-for="(item, index) in tags" :key="index">
+                <el-link :underline="false" @click="getItemByTag(item.type)">{{
+                  item.type
+                }}</el-link>
+              </li>
+              <li v-if="operation">
+                <el-popover placement="right" :width="100" trigger="hover">
+                  <template #reference>
+                    <el-link :underline="false"
+                      ><Icon icon="ic:baseline-add" width="1.1em" height="1.1em"
+                    /></el-link>
+                  </template>
+                  <el-input
+                    v-model="tag.type"
+                    placeholder="tag name"
+                    style="width: 100px"
+                  ></el-input>
+                  <el-link
+                    :underline="false"
+                    style="margin-left: 3px"
+                    @click="insertTag()"
+                    ><Icon icon="fluent:checkmark-12-filled"
                   /></el-link>
-                </li>
-              </template>
-              <el-input
-                v-model="tag.type"
-                placeholder="tag name"
-                style="width: 100px"
-              ></el-input>
-              <el-link :underline="false" style="margin-left: 3px" @click="insertTag()"
-                ><Icon icon="fluent:checkmark-12-filled"
-              /></el-link>
-            </el-popover>
-          </ul>
+                </el-popover>
+              </li>
+            </ul>
+          </div>
           <div class="search">
             <el-input placeholder="search" v-model="key" @keyup.enter="getItemByKey(key)">
               <template #prepend>
@@ -119,7 +124,7 @@
                   @click="openUpdateDiag(scope.row)"
                   >update</el-button
                 >
-                <el-button link type="primary" @click="updateStatus(scope.row.webNest)"
+                <el-button link type="primary" @click="updateStatus(scope.row)"
                   ><Icon
                     icon="ph:star"
                     width="1.2rem"
