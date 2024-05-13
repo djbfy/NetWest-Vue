@@ -140,16 +140,7 @@
           </el-table>
         </div>
       </el-main>
-      <el-footer class="footer"
-        ><div>
-          <el-text>
-            Have any problem,Tell me
-            <el-link :underline="false" href="https://github.com/djbfy"
-              ><Icon icon="bxl:github" width="1.2rem" height="1.2rem"
-            /></el-link>
-            </el-text><el-text>fanyong 2024-PRESENT
-          </el-text></div
-      ></el-footer>
+      <el-footer class="footer"><htmlFooter></htmlFooter></el-footer>
     </el-container>
   </div>
 
@@ -341,6 +332,7 @@ import { Icon } from "@iconify/vue";
 import { ref, onMounted, inject } from "vue";
 import navbar from "../components/layout/navbar.vue";
 import plum from "../components/bg/plum.vue";
+import htmlFooter from "../components/layout/footer.vue";
 import axios from "axios";
 import { ElMessage, ElMessageBox } from "element-plus";
 
