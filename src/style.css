@@ -11,12 +11,10 @@ ul, ol, li {
 }
 
 body {
-  width: 100vw; /* 使用视口宽度作为宽度 */
   height: 100vh; /* 使用视口高度作为高度 */
   margin: 0;
   display: flex;
   justify-content: space-evenly;
-  overflow-x: hidden; /* 隐藏水平溢出内容 */
 }
 
 /* 设置图片不会改变其尺寸比例 */

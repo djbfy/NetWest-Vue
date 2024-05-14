@@ -28,7 +28,7 @@
 <script setup lang="ts">
 import axios from "axios";
 import { ref } from "vue";
-import { ElLoading } from "element-plus";
+import { ElLoading,ElMessage } from "element-plus";
 
 const url = ref("");
 const getImageUrl = (name: string) => {
@@ -88,7 +88,12 @@ function HtmlApi() {
       },
     })
     .then((resp) => {
-      WebDomain.value = resp.data.data;
+      console.log(resp.data.data)
+      if (resp.data.data === null) {
+        ElMessage.warning("未获取到数据")
+      } else {
+        WebDomain.value = resp.data.data;
+      }
       loading.close();
     });
 }
