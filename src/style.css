@@ -16,6 +16,11 @@ body {
   display: flex;
   justify-content: center;
 }
+@media screen and (max-width: 768px) {
+  body {
+    justify-content: flex-start;
+  }
+}
 
 /* 设置图片不会改变其尺寸比例 */
 img {
