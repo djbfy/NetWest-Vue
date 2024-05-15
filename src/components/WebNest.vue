@@ -88,7 +88,7 @@
               </template>
             </el-table-column>
             <el-table-column prop="title" width="160" show-overflow-tooltip />
-            <el-table-column prop="url" width="250">
+            <el-table-column prop="url" width="250" show-overflow-tooltip >
               <template #default="scope">
                 <a :href="scope.row.url" target="_blank" class="tableStyle">
                   {{ scope.row.url }}
