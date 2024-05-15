@@ -14,7 +14,7 @@ body {
   height: 100vh; /* 使用视口高度作为高度 */
   margin: 0;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
 /* 设置图片不会改变其尺寸比例 */

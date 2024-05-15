@@ -22,21 +22,21 @@ interface Branch {
 }
 
 function init(a: number, b: number, c: number) {
-  ctx.value.lineWidth = 0.4;
+  ctx.value.lineWidth = 0.3;
   ctx.value.strokeStyle = "gray";
   step({
     start: { x: 0, y: a },
-    length: 5,
+    length: 4,
     theta: Math.PI / 6,
   });
   step({
     start: { x: 1200, y: b },
-    length: 5,
+    length: 4,
     theta: Math.PI,
   });
   step({
     start: { x: c, y: 0 },
-    length: 5,
+    length: 4,
     theta: Math.PI / 4,
   });
 }
@@ -46,8 +46,8 @@ let pendingTasks: Function[] = [];
 function step(b: Branch, depth = 0) {
   const end = getEndPoint(b);
   drawBranch(b);
-  stepCount++; // 每生成一步，计数器加一
-  if (stepCount >= 8000) return; // 判断生成步骤是否超过1000，超过则停止生成
+  stepCount++; 
+  if (stepCount >= 7000) return; // 判断生成步骤是否超过1000，超过则停止生成
   if (depth < 4 || Math.random() < 0.5) {
     pendingTasks.push(() =>
       step(
@@ -129,8 +129,6 @@ onMounted(() => {
   left: 0;
   width: 100%;
   height: 100%;
-  max-width: 1500px;
-  max-height: 1000px;
   z-index: -1; /* 确保背景在最顶层 */
 }
 canvas {
