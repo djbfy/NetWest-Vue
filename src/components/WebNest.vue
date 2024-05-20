@@ -87,7 +87,7 @@
                 />
               </template>
             </el-table-column>
-            <el-table-column prop="title" width="160" show-overflow-tooltip />
+            <el-table-column prop="title" width="150" show-overflow-tooltip />
             <el-table-column prop="url" width="250" show-overflow-tooltip >
               <template #default="scope">
                 <a :href="scope.row.url" target="_blank" class="tableStyle">
@@ -95,10 +95,10 @@
                 </a>
               </template>
             </el-table-column>
-            <el-table-column prop="description" width="300" show-overflow-tooltip />
+            <el-table-column prop="description" width="280" show-overflow-tooltip />
             <el-table-column
               prop="tag"
-              width="100"
+              width="80"
               :filters="filterItem"
               :filter-method="filterTag"
               filter-placement="bottom-end"
@@ -108,7 +108,7 @@
               </template>
             </el-table-column>
 
-            <el-table-column fixed="right" width="150">
+            <el-table-column fixed="right" width="180">
               <template #default="scope">
                 <el-button
                   link
