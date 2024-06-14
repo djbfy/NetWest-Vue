@@ -1,0 +1,17 @@
+.image-container {
+  padding: 30px 30px 40px 40px;
+  display: grid;
+  gap: 2.5rem; /* 调整图片之间的间距 */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  overflow-y: auto;
+}
+.search {
+  display: flex;
+  justify-content: flex-end;
+  width: auto;
+  height: 30px;
+}
+.image-item {
+  width: 330px;
+  height: 300px;
+}

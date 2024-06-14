@@ -1,0 +1,16 @@
+.title{
+  margin-top: 5px;
+}
+#focus {
+  position: relative;
+  top: 0;
+  font-size: 5em;
+  color: transparent;
+  font-weight: 700;
+  line-height: 1em;
+  -webkit-text-stroke-width: 1.5px;
+  --un-text-stroke-opacity: 1;
+  -webkit-text-stroke-color: rgb(170 170 170 / var(--un-text-stroke-opacity));
+  opacity: 0.35;
+  user-select: none;
+}
