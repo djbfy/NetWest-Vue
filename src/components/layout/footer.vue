@@ -17,27 +17,5 @@ import { Icon } from "@iconify/vue";
 </script>
 
 <style scoped>
-.u {
-  display: flex;
-  font-size: 13px;
-  flex-direction: column;
-  align-items: center;
-}
-.u1 {
-  display: flex;
-  height: 30px;
-}
-.u2 {
-  display: flex;
-  height: 20px;
-}
-a {
-  text-decoration: none;
-}
-a:hover {
-  color: gray;
-}
-a:visited {
-  color: gray;
-}
+@import "./css/footer.css";
 </style>

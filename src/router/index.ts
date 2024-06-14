@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import webNest from '../components/WebNest.vue'
 import plum from '../components/bg/plum.vue'
 import HtmlApi from '../components/Pages/HtmlApi.vue'
+import Images from '../components/Pages/Images.vue'
 // 引入路由各页面配置
 const pageRoutes  = [
   {
@@ -19,6 +20,11 @@ const pageRoutes  = [
     path: '/HtmlApi',
     name: 'HtmlApi  ',
     component: HtmlApi
+  },
+  {
+    path: '/Images',
+    name: 'Images  ',
+    component: Images
   },
 ]
  

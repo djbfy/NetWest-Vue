@@ -12,6 +12,7 @@
       <div class="content">
         <div class="links">
           <a href="/" class title="Home"><span>Home</span></a>
+          <a href="/Images" class title="Images"><span>Images</span></a>
           <a href="/HtmlApi" class title="ELse"><span>Else</span></a>
           <a class title="Verify" 
             ><Icon
@@ -93,37 +94,5 @@ onMounted(() => {
 </script>
 
 <style scoped>
-/* 导航栏容器 */
-.navbar {
-  padding: 0 20px; /* 左右内边距 */
-}
-.navbar a {
-  cursor: pointer;
-  text-decoration: none;
-  color: inherit;
-  transition: opacity 0.2s ease;
-  opacity: 0.6;
-  outline: none;
-}
-a:hover {
-  opacity: 1;
-}
-/* 导航栏包装器 */
-.navbar-wrapper {
-  padding: 1rem;
-  width: 100%;
-  display: grid;
-  grid-template-columns: auto max-content;
-  box-sizing: border-box;
-}
-
-.content {
-  display: flex; /* 使用 Flex 布局 */
-  align-items: center; /* 垂直居中 */
-}
-
-.links {
-  display: flex; /* 使用 Flex 布局 */
-  gap: 1.2rem; /* 设置链接之间的间距 */
-}
+@import "./css/navbar.css";
 </style>

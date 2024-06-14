@@ -1,30 +1,6 @@
-.el-header {
-  padding: 0;
-}
-.main-container {
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-}
-.title {
-  margin-top: 5px;
-}
 .data {
   padding: 0 80px;
   opacity: 0.7;
-}
-#focus {
-  position: relative;
-  top: 0;
-  font-size: 5em;
-  color: transparent;
-  font-weight: 700;
-  line-height: 1em;
-  -webkit-text-stroke-width: 1.5px;
-  --un-text-stroke-opacity: 1;
-  -webkit-text-stroke-color: rgb(170 170 170 / var(--un-text-stroke-opacity));
-  opacity: 0.35;
-  user-select: none;
 }
 .tag-search {
   display: flex;
@@ -69,10 +45,4 @@ ul {
 }
 .tableStyle:visited {
   color: blueviolet;
-}
-.footer {
-  color: gray;
-  opacity: 0.6;
-  display: flex;
-  justify-content: center;
 }

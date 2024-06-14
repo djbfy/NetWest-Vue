@@ -1,152 +1,140 @@
 <template>
   <div>
-    <plum> </plum>
-    <el-container>
-      <el-header><navbar></navbar> </el-header>
-      <el-main class="main-container">
-        <div class="title">
-          <span id="focus">WEBNEST</span>
-        </div>
-        <div class="tag-search">
-          <div class="cate">
-            <ul>
-              <li><el-link :underline="false" @click="getAllItems()">ALL</el-link></li>
-              <li v-for="(item, index) in tags" :key="index">
-                <el-link :underline="false" @click="getItemByTag(item.type)">{{
-                  item.type
-                }}</el-link>
-              </li>
-              <li v-if="operation">
-                <el-popover placement="right" :width="100" trigger="hover">
-                  <template #reference>
-                    <el-link :underline="false"
-                      ><Icon icon="ic:baseline-add" width="1.1em" height="1.1em"
-                    /></el-link>
-                  </template>
-                  <el-input
-                    v-model="tag.type"
-                    placeholder="tag name"
-                    style="width: 100px"
-                  ></el-input>
-                  <el-link
-                    :underline="false"
-                    style="margin-left: 3px"
-                    @click="insertTag()"
-                    ><Icon icon="fluent:checkmark-12-filled"
-                  /></el-link>
-                </el-popover>
-              </li>
-            </ul>
-          </div>
-          <div class="search">
-            <el-input placeholder="search" v-model="key" @keyup.enter="getItemByKey(key)">
-              <template #prepend>
-                <Icon
-                  icon="material-symbols:search"
-                  width="1.2rem"
-                  height="1.2rem"
-                /> </template
-            ></el-input>
-            <el-button
-              type="info"
-              link
-              v-if="operation"
-              @click="dialogInsertFormVisible = true"
-              ><Icon icon="gridicons:add-outline" width="1.4em" height="1.4em"
-            /></el-button>
-            <el-button type="info" link
-              ><Icon
-                icon="ph:scissors-bold"
-                width="1.4em"
-                height="1.4em"
-                v-if="operation"
-                @click="openDelConfirms(ids)"
-            /></el-button>
-          </div>
-        </div>
-        <div class="data">
-          <el-table
-            :data="tableData"
-            stripe
-            style="width: 100%"
-            empty-text="No Data"
-            @selection-change="handleSelectionChange"
-          >
-            <el-table-column type="selection" width="55" v-if="operation" />
-            <el-table-column width="50" prop="faviconUrl">
-              <template #default="scope">
-                <img
-                  :src="scope.row.favicon"
-                  v-if="scope.row.ghm === 0"
-                  style="width: 20px; height: 20px"
-                />
-                <img
-                  :src="getImageUrl(scope.row.favicon)"
-                  v-else
-                  style="width: 20px; height: 20px"
-                />
+    <Title :title="titleWord"></Title>
+    <div class="tag-search">
+      <div class="cate">
+        <ul>
+          <li><el-link :underline="false" @click="getAllItems()">ALL</el-link></li>
+          <li v-for="(item, index) in tags" :key="index">
+            <el-link :underline="false" @click="getItemByTag(item.type)">{{
+              item.type
+            }}</el-link>
+          </li>
+          <li v-if="operation">
+            <el-popover placement="right" :width="100" trigger="hover">
+              <template #reference>
+                <el-link :underline="false"
+                  ><Icon icon="ic:baseline-add" width="1.1em" height="1.1em"
+                /></el-link>
               </template>
-            </el-table-column>
-            <el-table-column prop="title" width="150" show-overflow-tooltip />
-            <el-table-column prop="url" width="250" show-overflow-tooltip >
-              <template #default="scope">
-                <a :href="scope.row.url" target="_blank" class="tableStyle">
-                  {{ scope.row.url }}
-                </a>
-              </template>
-            </el-table-column>
-            <el-table-column prop="description" width="280" show-overflow-tooltip />
-            <el-table-column
-              prop="tag"
-              width="80"
-              :filters="filterItem"
-              :filter-method="filterTag"
-              filter-placement="bottom-end"
-            >
-              <template #default="scope">
-                <el-tag type="info" disable-transitions>{{ scope.row.tag }}</el-tag>
-              </template>
-            </el-table-column>
+              <el-input
+                v-model="tag.type"
+                placeholder="tag name"
+                style="width: 100px"
+              ></el-input>
+              <el-link :underline="false" style="margin-left: 3px" @click="insertTag()"
+                ><Icon icon="fluent:checkmark-12-filled"
+              /></el-link>
+            </el-popover>
+          </li>
+        </ul>
+      </div>
+      <div class="search">
+        <el-input placeholder="search" v-model="key" @keyup.enter="getItemByKey(key)">
+          <template #prepend>
+            <Icon
+              icon="material-symbols:search"
+              width="1.2rem"
+              height="1.2rem"
+            /> </template
+        ></el-input>
+        <el-button
+          type="info"
+          link
+          v-if="operation"
+          @click="dialogInsertFormVisible = true"
+          ><Icon icon="gridicons:add-outline" width="1.4em" height="1.4em"
+        /></el-button>
+        <el-button type="info" link
+          ><Icon
+            icon="ph:scissors-bold"
+            width="1.4em"
+            height="1.4em"
+            v-if="operation"
+            @click="openDelConfirms(ids)"
+        /></el-button>
+      </div>
+    </div>
+    <div class="data">
+      <el-table
+        :data="tableData"
+        stripe
+        style="width: 100%"
+        empty-text="No Data"
+        @selection-change="handleSelectionChange"
+      >
+        <el-table-column type="selection" width="55" v-if="operation" />
+        <el-table-column width="50" prop="faviconUrl">
+          <template #default="scope">
+            <img
+              :src="scope.row.favicon"
+              v-if="scope.row.ghm === 0"
+              style="width: 20px; height: 20px"
+            />
+            <img
+              :src="getImageUrl(scope.row.favicon)"
+              v-else
+              style="width: 20px; height: 20px"
+            />
+          </template>
+        </el-table-column>
+        <el-table-column prop="title" width="150" show-overflow-tooltip />
+        <el-table-column prop="url" width="250" show-overflow-tooltip>
+          <template #default="scope">
+            <a :href="scope.row.url" target="_blank" class="tableStyle">
+              {{ scope.row.url }}
+            </a>
+          </template>
+        </el-table-column>
+        <el-table-column prop="description" width="280" show-overflow-tooltip />
+        <el-table-column
+          prop="tag"
+          width="80"
+          :filters="filterItem"
+          :filter-method="filterTag"
+          filter-placement="bottom-end"
+        >
+          <template #default="scope">
+            <el-tag type="info" disable-transitions>{{ scope.row.tag }}</el-tag>
+          </template>
+        </el-table-column>
 
-            <el-table-column fixed="right" width="180">
-              <template #default="scope">
-                <el-button
-                  link
-                  type="danger"
-                  v-if="operation"
-                  @click="openDelConfirm(scope.row.id)"
-                  >del</el-button
-                >
-                <el-button
-                  link
-                  type="primary"
-                  v-if="operation"
-                  @click="openUpdateDiag(scope.row)"
-                  >update</el-button
-                >
-                <el-button link type="primary" @click="updateStatus(scope.row)"
-                  ><Icon
-                    icon="ph:star"
-                    width="1.2rem"
-                    color="gray"
-                    height="1.2rem"
-                    v-if="scope.row.status === 0"
-                  ></Icon>
-                  <Icon
-                    icon="ph:star-fill"
-                    style="color: #e5cb48"
-                    width="1.2rem"
-                    height="1.2rem"
-                    v-if="scope.row.status === 1"
-                  ></Icon
-                ></el-button>
-              </template>
-            </el-table-column>
-          </el-table>
-        </div>
-      </el-main>
-      <el-footer class="footer"><htmlFooter></htmlFooter></el-footer>
-    </el-container>
+        <el-table-column fixed="right" width="180">
+          <template #default="scope">
+            <el-button
+              link
+              type="danger"
+              v-if="operation"
+              @click="openDelConfirm(scope.row.id)"
+              >del</el-button
+            >
+            <el-button
+              link
+              type="primary"
+              v-if="operation"
+              @click="openUpdateDiag(scope.row)"
+              >update</el-button
+            >
+            <el-button link type="primary" @click="updateStatus(scope.row)"
+              ><Icon
+                icon="ph:star"
+                width="1.2rem"
+                color="gray"
+                height="1.2rem"
+                v-if="scope.row.status === 0"
+              ></Icon>
+              <Icon
+                icon="ph:star-fill"
+                style="color: #e5cb48"
+                width="1.2rem"
+                height="1.2rem"
+                v-if="scope.row.status === 1"
+              ></Icon
+            ></el-button>
+          </template>
+        </el-table-column>
+      </el-table>
+    </div>
   </div>
 
   <!-- insert表单 -->
@@ -335,11 +323,10 @@
 <script setup lang="ts">
 import { Icon } from "@iconify/vue";
 import { ref, onMounted, inject } from "vue";
-import navbar from "../components/layout/navbar.vue";
-import plum from "../components/bg/plum.vue";
-import htmlFooter from "../components/layout/footer.vue";
 import axios from "axios";
 import { ElMessage, ElMessageBox } from "element-plus";
+import Title from './layout/title.vue'
+const titleWord=ref('WEBNEST')
 
 //页面刷新
 const reload = inject<Function>("reload")!;
